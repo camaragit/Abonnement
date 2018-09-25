@@ -1,0 +1,190 @@
+ <meta charset="UTF-8">
+<div class="row" ng-init="test()">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">SERVICES</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+ <connexionmodale visible="connexionModale">
+        <div class="modal-body">
+        <div class="panel panel-success" data-ng-show="!signIn">
+                <div class="panel-heading text-center">
+                    <h3 class="text-white">{{titre}}</h3>
+                </div>
+                <div class="panel-body">
+                <div ng-if="etat=='new'">
+                <div >
+                 <form role="form" name="formrub">
+						
+							<div class="form-group">
+							
+								<label>Nom Rubrique *</label> <input ng-model="data.nomRubrique"
+									class="form-control" ng-blur="verifExisencerub()" ng-focus="resetnomrub()" required>
+									<p class="has-error" ng-if="existe">{{messagemodal}}</p>
+							</div>
+							
+							<div class="form-group">
+								<label>Prix *</label> <input ng-model="data.prix"
+									class="form-control" type="number" required>
+							</div>
+							
+
+						<div class="col-xs-12">
+                                <button  ng-click="saverubrique()" ng-disabled="formrub.$invalid || existe" class="btn btn-block btn-ed-model btn-success">{{bouton}}</button>
+                            </div>
+					
+
+						</form> 
+						</div>
+						</div>
+						<div ng-if="etat!='new'">
+														<label>Description</label>
+								
+								<textarea rows="8" cols="48" ng-model="dataedition.description" class="form-control" readonly></textarea>
+        			 <div class="page-header"><h3>Rubriques</h3></div> 
+							 	<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Prix</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="r in dataedition.rubriques">
+												<td><span ng-bind="r.nomRubrique"></span></td>
+												<td><span >{{r.prix}}F CFA</span></td>										
+												
+											</tr>
+										</tbody>
+									</table>
+								</div> 
+						 		 <div class="col-xs-6" style="margin-left: 120px;" ng-if="etat=='details'">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">OK</button>
+                            </div>
+                      <div class="col-xs-12 margin-top-20" ng-if="etat=='suppression'">                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-danger" ng-click="supprimer(dataedition.idService)" > Confirmer </button>
+                            </div> 
+                        </div>
+                        </div> 
+                </div>
+            </div>
+
+        </div>
+    </connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel  panel-primary">
+			<div class="panel-heading"><h3 align="center">Fiche Services</h3><div flash-message="5000"></div></div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-4 " >
+						<h3 class="page-header">{{mode}}</h3>
+						<form role="form" name="formserv">
+						
+							<div class="form-group">
+							
+								<label>Nom Service *</label> <input ng-model="data.nomService"
+									class="form-control" ng-blur="verifExisence()" ng-focus="resetnomserv()" required>
+									<p class="has-error" ng-if="existe">{{message}}</p>
+							</div>
+							<input type="hidden" ng-model="data.idService" />
+							
+							<div class="form-group">
+								<label>Description</label>
+								
+								<textarea rows="8" cols="48" ng-model="data.description" class="form-control" ></textarea> <!-- <input ng-model="data.tel"
+									class="form-control"> -->
+							</div>
+							<div class="form-group">
+							<div class="page-header><h6 ">Cocher les rubriques du service</h6> <div class="glyphicon glyphicon-plus-sign " style="margin-left: 40px;" ng-click="affichenew()"> New rubrique</div></div>
+								<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Prix</th>
+												<th class="fa fa-check-square-o"> Selectionner</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="r in rubrique">
+												<td><span ng-bind="r.nomRubrique"></span></td>
+												<td><span >{{r.prix}}F CFA</span></td>
+												<td> <input type="checkbox"   checklist-model="data.rubriques" checklist-value="r"></td>
+												
+												
+											</tr>
+										</tbody>
+									</table>
+								</div>	
+							</div>
+						
+
+						<div class="col-xs-6">
+                                <button  ng-click="valider()"  ng-disabled="formserv.$invalid || existe || !data.rubriques || data.rubriques.length<=0" class="btn btn-block btn-ed-model btn-success">{{bouton}}</button>
+                            </div>
+					
+
+						</form>
+					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<div class="col-lg-8">
+						<h3 class="page-header">Vos Services</h3>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default" style="margin: 20px;">
+
+								<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+																							
+												<th>desc</th>
+												<th>details</th>
+												<th></th>
+												<th width="100">
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="s in service">
+												<td><span ng-bind="s.nomService"></span></td>
+												<td><span >{{s.description}}</span></td>
+												<td><i ng-click="editermod(s.idService,1)"
+													class="glyphicon glyphicon-eye-open"></i></td>						
+												<td><i ng-click="editer(s.idService,1)"
+													class="glyphicon glyphicon-edit"></i></td>
+												<td><i ng-click="editermod(s.idService,2)"
+													class="glyphicon glyphicon-trash"></i></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+						<!-- /.row (nested) -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">
+                            Powered by AJIT 
+                        </div>
+			<!-- /.col-lg-12 -->
+		</div>
+			<!-- /.col-lg-12 -->
+		</div>
+			
+	</div>
+
+
+ 

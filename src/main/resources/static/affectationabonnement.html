@@ -1,0 +1,245 @@
+
+<meta charset="UTF-8">
+<div class="row">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">ABONNEMENT</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<connexionmodale visible="connexionModale">
+<div class="modal-body">
+	<div class="panel panel-success" data-ng-show="!signIn">
+		<div class="panel-heading text-center">
+			<h3 class="text-white">{{titre}}</h3>
+		</div>
+		<div class="panel-body">
+				
+			
+			 			<div ng-if="etat=='detailsab'">
+				<div class="page-header">
+					<h3>Service(s)</h3>
+				</div>
+				<div class="tablecontainer">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Nombre de Séance</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="s in dataedition.abonnement_Services" ng-click="dame(a)">
+								<td><span ng-bind="s.service.nomService"></span></td>
+								<td><span ng-bind="s.nbseance"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-6" style="margin-left: 120px;"
+					>
+					<button data-dismiss="modal"
+						class="btn btn-block btn-ed-model btn-success">OK</button>
+				</div>
+		
+			</div> 
+						<div ng-if="etat=='detailsabonnement'">
+					<div class="page-header"><h3>Infos Abonné</h3></div>			
+        			 
+        			  	<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Prenom </th>
+												<th>Nom </th>
+												<th>Téléphone</th>
+												<th>Email </th>
+												</tr>
+										</thead>
+										<tbody>
+										<tr>
+										<td><span ng-bind="data.prenomAbonne"></span></td>
+										<td><span ng-bind="data.nomAbonne"></span></td>
+										<td><span ng-bind="data.telAbonne"></span></td>
+										<td><span ng-bind="data.email"></span></td>
+										</tr>
+										
+										</tbody>
+									</table>
+								</div>
+								<div class="page-header"><h3>Type Abonnement choisi(s)</h3></div> 
+							 	<p><h3 align="center">{{data.serv.nomabonnement}}</h3></p>
+							 	<br>
+							 	<br>
+								</div> 
+						 		 <div class="col-xs-6" style="margin-left: 120px;" ng-if="etat=='details'">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">OK</button>
+                            </div>
+                      <div class="col-xs-12 margin-top-20" >                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-danger">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-success " ng-click="validerAbonnement()" > Confirmer </button>
+                            </div> 
+                        </div>
+                        </div> 
+		</div>
+	</div>
+
+
+</div>
+</connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel  panel-primary">
+			<div class="panel-heading">
+				<h3 align="center">Fiche Type Abonnement</h3>
+				<div flash-message="5000"></div>
+			</div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-4 ">
+					<h3 class="page-header">Releve Abonne</h3>			
+					<md-content class="md-no-momentum"> 
+							<input type="hidden" ng-model="data.codeabsvg"/>
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Code ID carte</label> 
+						<input ng-model="data.codeab" ng-focus="resetreleve()"  ng-required="true" type="text">  <md-icon md-svg-src="img/icons/ic_find_in_page_24px.svg"  ng-click="getabonne()"></md-icon>
+	                <p class="has-error" ng-if="existeab">{{message}}</p>
+	                 </md-input-container>
+	                 
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Nom</label> 
+						<md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon><input ng-model="data.nomAbonne" ng-required="true" type="text">  
+	               </md-input-container>
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Prenom</label> 
+						<md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon><input ng-model="data.prenomAbonne" ng-required="true" type="text">  
+	               </md-input-container>	               	               
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Telephone</label> 
+						<md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon><input ng-model="data.telAbonne"  ng-required="true" type="text">  
+	               </md-input-container>
+	               		<md-input-container class="md-icon-float md-block"> 
+						<label>Adresse mail</label> 
+						<md-icon md-svg-src="img/icons/ic_email_24px.svg"></md-icon><input ng-model="data.email"  ng-required="true" type="text">  
+	               </md-input-container>								 
+						</md-content>
+						
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						
+						<br>
+						<br>				
+						</div>
+						<div class="col-lg-4">
+
+						</div>
+					
+					<div class="col-lg-8">
+						<h3 class="page-header">Choix Types d'abonnement</h3>
+							<!-- <div class="col-lg-4"></div> -->
+						<div class="col-lg-4">
+
+							</div>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default">
+
+								<div class="tablecontainer">
+
+									<table class="table table-hover">
+										<thead>
+											<tr>
+											<th><div class="fa fa-dot-circle-o"></div></th>
+												<th>Nom</th>
+												<th>details</th>
+												<th></th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="a in abonnement">
+											
+											 <td>
+         				 <md-radio-group ng-model="data.serv">
+          					  <md-radio-button  value="{{a}}"></md-radio-button>
+         				 </md-radio-group>
+        									</td>
+											
+												<td><span ng-bind="a.nomabonnement"></span></td>
+												<td><i ng-click="editermod(a.idAbonnement)"
+													class="glyphicon glyphicon-eye-open"></i></td>
+												
+												
+											</tr>
+										</tbody>
+									</table>
+								
+								</div>
+		
+							</div>
+						
+	<section layout="row" layout-padding="">
+
+      <cl-paging flex cl-pages="totalab" , cl-steps="3" , cl-page-changed="changepageAbonnement()" , cl-align="center center" , cl-current-page="data.pageab"></cl-paging>
+
+    </section>
+    <h3 class="page-header">Date d'expiration</h3>
+    
+    <md-datepicker ng-model="madate" 
+               md-placeholder="Entrer une date"
+               md-min-date="minDate" ng-change="verification()">
+    </md-datepicker>
+    <!-- <md-datepicker ng-model="myDate" md-placeholder="Enter date" md-max-date="maxDate" ng-change="tester()"
+            md-min-date="minDate"></md-datepicker> -->
+         <!--    <md-datepicker ng-model="myDat" md-placeholder="Enter date"
+            md-min-date="minDate" md-max-date="maxDate"></md-datepicker> --> 
+            <!-- <mdp-date-picker name="minMaxDate" mdp-placeholder="Date debut" mdp-min-date="'2000-01-01'" mdp-max-date="'2005-01-01'" ng-model="currentDate">
+            </mdp-date-picker>
+            <mdp-date-picker name="minMaxDate" mdp-placeholder="Date fin" mdp-min-date="'2000-01-01'" mdp-max-date="'2005-01-01'" ng-model="currentDate">
+            </mdp-date-picker>  -->           
+                <!--       <mdp-date-picker name="minMaxDate" mdp-placeholder="Date" mdp-min-date="'2000-01-01'" mdp-max-date="'2005-01-01'" ng-model="currentDate">
+                <div ng-messages="demoForm.minMaxDate.$error">
+                  <div ng-message="required">This is required</div>
+                  <div ng-message="format">Invalid format</div>
+                  <div ng-message="minDate">Min date</div>
+                  <div ng-message="maxDate">Max date</div>
+                </div>
+              </mdp-date-picker> -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    							<div class="col-lg-4"></div>
+ 								<div class="col-lg-6">
+ 							<div class="col-xs-4">
+								<button ng-click="confirmation()" ng-disabled="data.serv.length==0 || !data.nomAbonne || existeab || !madate" class="btn btn-block btn-ed-model btn-success">Valider</button>
+							</div>
+
+
+						 </div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+					
+		
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">Powered by AJIT</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+
+</div>
+
+

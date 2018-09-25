@@ -1,0 +1,126 @@
+
+ <meta charset="UTF-8">
+<div class="row">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">RUBRIQUES</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+ <connexionmodale visible="connexionModale">
+        <div class="modal-body">
+        <div class="panel panel-success" data-ng-show="!signIn">
+                <div class="panel-heading text-center">
+                    <h3 class="text-white">Suppréssion de la rubrique</h3>
+                </div>
+                <div class="panel-body">
+                 <table>
+                 
+                 <tr><td><h4>Nom: </h4></td><td><h4>{{suprubrique.nomRubrique}}</h4></td></tr>
+                 <tr><td><h4>Prix:</h4></td><td><h4>{{suprubrique.prix}}</h4></td></tr>
+                 
+                  </table>
+                  <br/>
+                      <div class="col-xs-12 margin-top-20">                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-danger" ng-click="supprimer(suprubrique.idRubrique)" > Confirmer </button>
+                            </div> 
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel  panel-primary">
+			<div class="panel-heading"><h3 align="center">Fiche Rubriques</h3><div flash-message="5000"></div></div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-4 " >
+						<h3 class="page-header">{{mode}}</h3>
+						<form role="form" name="formrub">
+						
+							<div class="form-group">
+							
+								<label>Nom Rubrique *</label> <input ng-model="data.nomRubrique"
+									class="form-control" ng-blur="verifExisence()" ng-focus="resetnomrub()" required>
+									<p class="has-error" ng-if="existe">{{message}}</p>
+							</div>
+							<input type="hidden" ng-model="data.idRubrique" />
+							<div class="form-group">
+								<label>Prix *</label> <input ng-model="data.prix"
+									class="form-control" type="number" required>
+							</div>
+							<div class="form-group">
+								<label>Description</label>
+								
+								<textarea rows="8" cols="48" ng-model="data.description" class="form-control" ></textarea> <!-- <input ng-model="data.tel"
+									class="form-control"> -->
+							</div>
+							
+
+						<div class="col-xs-6">
+                                <button  ng-click="valider()" ng-disabled="formrub.$invalid || existe" class="btn btn-block btn-ed-model btn-success">{{bouton}}</button>
+                            </div>
+					
+
+						</form>
+					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<div class="col-lg-8">
+						<h3 class="page-header">Vos Rubriques</h3>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default" style="margin: 20px;">
+
+								<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Prix</th>
+												<th>desc</th>
+												<th></th>
+												<th width="100">
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="r in rubrique">
+												<td><span ng-bind="r.nomRubrique"></span></td>
+												<td><span >{{r.prix}}F CFA</span></td>
+												<!-- <td><span ng-bind="r.dateCreation | date:'dd-MM-yyyy  HH:mm:ss'"></span></td>
+												<td><span ng-bind="r.lastupdate | date:'dd-MM-yyyy  HH:mm:ss'"></span></td> -->
+												<td><span ng-bind="r.description"></span></td>
+												<td><i ng-click="editer(r.idRubrique)"
+													class="glyphicon glyphicon-edit"></i></td>
+												<td><i ng-click="modalsupprimer(r.idRubrique)"
+													class="glyphicon glyphicon-trash"></i></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+						<!-- /.row (nested) -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">
+                            Powered by AJIT 
+                        </div>
+			<!-- /.col-lg-12 -->
+		</div>
+			<!-- /.col-lg-12 -->
+		</div>
+			
+	</div>
+
+
+ 

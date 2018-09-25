@@ -1,0 +1,220 @@
+
+<meta charset="UTF-8">
+<div class="row">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">ABONNEMENT</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<connexionmodale visible="connexionModale">
+<div class="modal-body">
+	<div class="panel panel-success" data-ng-show="!signIn">
+		<div class="panel-heading text-center">
+			<h3 class="text-white">{{titre}}</h3>
+		</div>
+		<div class="panel-body">
+				
+			
+			 			<div ng-if="etat=='detailsab'">
+				<div class="page-header">
+					<h3>Service(s)</h3>
+				</div>
+				<div class="tablecontainer">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Nombre de Séance</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="s in dataedition.abonnement_Services" ng-click="dame(a)">
+								<td><span ng-bind="s.service.nomService"></span></td>
+								<td><span ng-bind="s.nbseance"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-6" style="margin-left: 120px;"
+					>
+					<button data-dismiss="modal"
+						class="btn btn-block btn-ed-model btn-success">OK</button>
+				</div>
+		
+			</div> 
+						<div ng-if="etat=='detailsabonnement'">
+					<div class="page-header"><h3>Infos Abonné</h3></div>			
+        			 
+        			  	<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Prenom </th>
+												<th>Nom </th>
+												<th>Téléphone</th>
+												<th>Email </th>
+												</tr>
+										</thead>
+										<tbody>
+										<tr>
+										<td><span ng-bind="data.prenomAbonne"></span></td>
+										<td><span ng-bind="data.nomAbonne"></span></td>
+										<td><span ng-bind="data.telAbonne"></span></td>
+										<td><span ng-bind="data.email"></span></td>
+										</tr>
+										
+										</tbody>
+									</table>
+								</div>
+								<div class="page-header"><h5>Confirmez qu'il ou elle a effectué le(s) Service(s) suivant(s)</h5></div> 
+								<table>
+								<tr ng-repeat="serv in data.trx">
+								<td colspan="5"><p><h4 align="center">{{serv.nomService}}</h4></p></td>
+								</tr>
+								</table>
+							 	
+							 	<br>
+							 	<br>
+								</div> 
+						 		 <div class="col-xs-6" style="margin-left: 120px;" ng-if="etat=='details'">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">OK</button>
+                            </div>
+                      <div class="col-xs-12 margin-top-20" >                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-danger">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-success " ng-click="transaction()" > Confirmer </button>
+                            </div> 
+                        </div>
+                        </div> 
+		</div>
+	</div>
+
+
+</div>
+</connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel  panel-primary">
+			<div class="panel-heading">
+				<h3 align="center">Etat Abonnement</h3>
+				<div flash-message="5000"></div>
+			</div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-4 ">
+					<h3 class="page-header">Releve Abonne</h3>			
+					<md-content class="md-no-momentum"> 
+							<input type="hidden" ng-model="data.codeabsvg"/>
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Code ID carte</label> 
+						<input ng-model="data.codeab" ng-focus="resetreleve()"  ng-required="true" type="text">  <md-icon md-svg-src="img/icons/ic_find_in_page_24px.svg"  ng-click="getabonne()"></md-icon>
+	                <p class="has-error" ng-if="existeab">{{message}}</p>
+	                 </md-input-container>
+	                 
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Nom</label> 
+						<md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon><input ng-model="data.nomAbonne" ng-required="true" type="text">  
+	               </md-input-container>
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Prenom</label> 
+						<md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon><input ng-model="data.prenomAbonne" ng-required="true" type="text">  
+	               </md-input-container>	               	               
+					 <md-input-container class="md-icon-float md-block"> 
+						<label>Telephone</label> 
+						<md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon><input ng-model="data.telAbonne"  ng-required="true" type="text">  
+	               </md-input-container>
+	               		<md-input-container class="md-icon-float md-block"> 
+						<label>Adresse mail</label> 
+						<md-icon md-svg-src="img/icons/ic_email_24px.svg"></md-icon><input ng-model="data.email"  ng-required="true" type="text">  
+	               </md-input-container>								 
+						</md-content>
+						
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						
+						<br>
+						<br>				
+						</div>
+						<div class="col-lg-4">
+
+						</div>
+					
+					<div class="col-lg-8" ng-if="data.nomAbonne && valide">
+						<h3 class="page-header"><ion-footer-bar>{{data.prenomAbonne}} {{data.nomAbonne}} est inscrit(e) au {{data.serv[0].abonnements.nomabonnement}} jusqu'au {{data.serv[0].dateExpiration|date :  "dd/MM/yyyy" }} </h3>
+						<div class="page-header"><h4>Nombre de Séance restants par service</h4> </div>
+							<h6>(Cocher le(s) service qu'il ou qu'elle est venu(e) faire et valider)</h6>
+						<div class="col-lg-4">
+
+							</div>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default">
+
+								<div class="tablecontainer">
+
+									<table class="table table-hover">
+										<thead>
+											<tr>
+											<th><div class="fa fa-check-square-o"></div></th>
+												<th>Nom Service</th>
+												<th>Nbre de Séances Restants</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="a in data.serv">
+						<td><input type="checkbox"  checklist-model="data.trx" checklist-value="a"></td>
+											
+												<td><span ng-bind="a.nomService"></span></td>
+												<td><span ng-bind="a.nombreSeance"></span></td>
+												
+												
+											</tr>
+										</tbody>
+									</table>
+							
+								</div>
+		
+							</div>
+						
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+   
+    							<div class="col-lg-4"></div>
+ 								<div class="col-lg-6">
+ 							<div class="col-xs-4">
+								<button ng-click="confirmation()" ng-disabled="!data.trx || data.trx.length==0" class="btn btn-block btn-ed-model btn-success">Valider</button>
+							</div>
+							 		<div class="col-xs-4">
+								<button ui-sref="main" class="btn btn-block btn-ed-model btn-danger">Fermer</button>
+							</div>
+
+
+						 </div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+					
+		
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">Powered by AJIT</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+
+</div>
+
+

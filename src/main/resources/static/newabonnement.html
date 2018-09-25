@@ -1,0 +1,313 @@
+
+<meta charset="UTF-8">
+<div class="row">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">ABONNEMENT</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<connexionmodale visible="connexionModale">
+<div class="modal-body">
+	<div class="panel panel-success" data-ng-show="!signIn">
+		<div class="panel-heading text-center">
+			<h3 class="text-white">{{titre}}</h3>
+		</div>
+		<div class="panel-body">
+				<div ng-if="etat=='service'">
+							<label>Description</label>
+								
+								<textarea rows="8" cols="48" ng-model="dataedition.description" class="form-control" readonly></textarea>
+        			 <div class="page-header"><h3>Rubriques</h3></div> 
+							 	<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Prix</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="r in dataedition.rubriques">
+												<td><span ng-bind="r.nomRubrique"></span></td>
+												<td><span >{{r.prix}}F CFA</span></td>										
+												
+											</tr>
+										</tbody>
+									</table>
+								</div> 
+						 		 <div class="col-xs-6" style="margin-left: 120px;" >
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">OK</button>
+                            </div>
+                      <div class="col-xs-12 margin-top-20" ng-if="etat=='suppression'">                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-danger" ng-click="supprimer(dataedition.idService)" > Confirmer </button>
+                            </div> 
+                        </div>
+                  </div> 
+<!--  			<div ng-if="etat=='service'">
+				<div class="page-header">
+					<h3>Service</h3>
+				</div>
+				<div class="tablecontainer">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Prénom</th>
+								<th>Nom</th>
+								<th>Téléphone</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="a in abonne" ng-click="dame(a)">
+								<td><span ng-bind="a.nom"></span></td>
+								<td><span ng-bind="r.prenom"></span></td>
+								<td><span ng-bind="r.telephone"></span></td>
+								<td><span>{{r.prix}}F CFA</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-6" style="margin-left: 120px;">
+					<button data-dismiss="modal"
+						class="btn btn-block btn-ed-model btn-success">OK</button>
+				</div>
+				<div class="col-xs-12 margin-top-20" ng-if="etat=='suppression'">
+					<div class="col-xs-6">
+						<button data-dismiss="modal"
+							class="btn btn-block btn-ed-model btn-success">Annuler</button>
+					</div>
+					<div class="col-xs-6">
+						<button type="button"
+							class="btn btn-block btn-ed-model btn-danger"
+							ng-click="supprimer(dataedition.idService)">Confirmer</button>
+					</div>
+				</div>
+			</div>  -->
+			<!-- datails abonnement -->
+			
+			 			<div ng-if="etat=='detailsab'">
+				<div class="page-header">
+					<h3>Service(s)</h3>
+				</div>
+				<div class="tablecontainer">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Nombre de Séance</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="s in dataedition.abonnement_Services" ng-click="dame(a)">
+								<td><span ng-bind="s.service.nomService"></span></td>
+								<td><span ng-bind="s.nbseance"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-xs-6" style="margin-left: 120px;"
+					>
+					<button data-dismiss="modal"
+						class="btn btn-block btn-ed-model btn-success">OK</button>
+				</div>
+		
+			</div> 
+						<div ng-if="etat=='suppression'">
+								
+        			 <div class="page-header"><h3>Service(s)</h3></div> 
+							 	<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>Nombre de Séance</th>
+											</tr>
+										</thead>
+										<tbody>
+										<tr ng-repeat="s in dataedition.abonnement_Services" ng-click="dame(a)">
+										<td><span ng-bind="s.service.nomService"></span></td>
+										<td><span ng-bind="s.nbseance"></span></td>
+										</tr>
+										
+										</tbody>
+									</table>
+								</div> 
+						 		 <div class="col-xs-6" style="margin-left: 120px;" ng-if="etat=='details'">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">OK</button>
+                            </div>
+                      <div class="col-xs-12 margin-top-20" ng-if="etat=='suppression'">                    
+                            <div class="col-xs-6">
+                                <button  data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-danger" ng-click="supprimer(dataedition.idAbonnement)" > Confirmer </button>
+                            </div> 
+                        </div>
+                        </div> 
+		</div>
+	</div>
+
+
+</div>
+</connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel  panel-primary">
+			<div class="panel-heading">
+				<h3 align="center">Fiche Type Abonnement</h3>
+				<div flash-message="5000"></div>
+			</div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-8 ">
+						<h3 class="page-header">{{mode}}</h3>
+						
+						<div class="col-lg-4">
+							<md-content class="md-no-momentum"> 
+							<input type="hidden" ng-model="data.idabonnement"/>
+					 <md-input-container
+					 
+								class="md-icon-float md-block"> 
+								
+								<label>Nom
+								Abonnement</label> <md-icon md-svg-src="img/icons/ic_person_24px.svg"
+								class="Téléphone"></md-icon> <input ng-model="data.nomab" ng-focus="resetval()" ng-blur="chercherAbonnement()" ng-required="true"
+								 type="text"> </md-input-container>
+								 
+						</md-content>
+						<p class="has-error" ng-if="existeab">{{message}}</p>
+						<br>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div >
+						<br>
+						<br>
+						<h3 class="page-header">Services</h3>
+						<p class="has-error" ng-if="nbseanceoublie">{{message}}</p>
+				
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default">
+
+								<div class="tablecontainer">
+
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th><div class="fa fa-check-square-o"></div></th>
+												<th>Nom</th>
+											
+												<th>details</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="s in service">
+												<td><input type="checkbox" ng-change="tester($index)"
+													checklist-model="data.serv" checklist-value="s"></td>
+												<td><span ng-bind="s.nomService"></span></td>
+												
+												<td><i ng-click="editerserv(s.idService,1)"
+													class="glyphicon glyphicon-eye-open"></i></td>
+												<td><span ng-if="coche[$index]==true "><md-input-container>
+														<input ng-model="s.nombre" placeholder="Nombre de Séance"
+															min="1" type="number" step="1" ng-focus="resetval()"></md-input-container></span></td>
+											</tr>
+										</tbody>
+									</table>
+									
+								</div>
+
+							</div>
+																								 <section layout="row" layout-padding="">
+
+      <cl-paging flex cl-pages="total" , cl-steps="3" , cl-page-changed="onPageChanged()" , cl-align="center center" , cl-current-page="data.page"></cl-paging>
+
+    </section>
+							</div>
+							</div>
+							<div class="col-lg-4">
+							<div class="col-xs-6">
+								<button ng-click="valider()" ng-disabled="data.serv.length==0 || !data.nomab"
+									class="btn btn-block btn-ed-model btn-success">{{bouton}}</button>
+							</div>
+
+
+						</div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+						<div class="col-lg-4">
+
+
+
+						</div>
+					
+					<div class="col-lg-4">
+						<h3 class="page-header">Vos Types d'abonnement</h3>
+							<!-- <div class="col-lg-4"></div> -->
+						<div class="col-lg-4">
+
+							</div>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default">
+
+								<div class="tablecontainer">
+
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nom</th>
+												<th>details</th>
+												<th></th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="a in abonnement">
+											
+												<td><span ng-bind="a.nomabonnement"></span></td>
+												<td><i ng-click="editermod(a.idAbonnement,2)"
+													class="glyphicon glyphicon-eye-open"></i></td>
+												<td><i ng-click="editer(a.idAbonnement)"
+													class="glyphicon glyphicon-edit"></i></td>
+												<td><i ng-click="editermod(a.idAbonnement,3)"
+													class="glyphicon glyphicon-trash"></i></td>	
+												
+											</tr>
+										</tbody>
+									</table>
+								</div>
+		
+							</div>
+	<section layout="row" layout-padding="">
+
+      <cl-paging flex cl-pages="totalab" , cl-steps="3" , cl-page-changed="changepageAbonnement()" , cl-align="center center" , cl-current-page="data.pageab"></cl-paging>
+
+    </section>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+					
+		
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">Powered by AJIT</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+
+</div>
+
+

@@ -1,0 +1,57 @@
+2018-09-13 12:30:43.798  INFO 2756 --- [restartedMain] s.c.SpringBootJwtAngularjsApplication    : Starting SpringBootJwtAngularjsApplication on Dame-PC with PID 2756 (C:\Users\Dame\IdeaProjects\springBoot_jwt_angularjs\target\classes started by Dame in C:\Users\Dame\IdeaProjects\springBoot_jwt_angularjs)
+2018-09-13 12:30:43.800  INFO 2756 --- [restartedMain] s.c.SpringBootJwtAngularjsApplication    : No active profile set, falling back to default profiles: default
+2018-09-13 12:30:44.276  INFO 2756 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@30eca38c: startup date [Thu Sep 13 12:30:44 UTC 2018]; root of context hierarchy
+2018-09-13 12:30:46.504  INFO 2756 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 80 (http)
+2018-09-13 12:30:46.514  INFO 2756 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-09-13 12:30:46.515  INFO 2756 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2018-09-13 12:30:46.625  INFO 2756 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-09-13 12:30:46.625  INFO 2756 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2355 ms
+2018-09-13 12:30:46.762  INFO 2756 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-09-13 12:30:46.764  INFO 2756 --- [localhost-startStop-1] .s.DelegatingFilterProxyRegistrationBean : Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-09-13 12:30:46.764  INFO 2756 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-09-13 12:30:47.574  INFO 2756 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-09-13 12:30:47.588  INFO 2756 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-13 12:30:47.645  INFO 2756 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-09-13 12:30:47.647  INFO 2756 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-09-13 12:30:47.648  INFO 2756 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-09-13 12:30:47.686  INFO 2756 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-09-13 12:30:47.862  INFO 2756 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2018-09-13 12:30:48.009  INFO 2756 --- [restartedMain] o.h.e.j.e.i.LobCreatorBuilderImpl        : HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2018-09-13 12:30:48.011  INFO 2756 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@54cc01cb
+2018-09-13 12:30:48.469  INFO 2756 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2018-09-13 12:30:48.626  INFO 2756 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-09-13 12:30:48.868  INFO 2756 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-09-13 12:30:49.311  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/js/**'], []
+2018-09-13 12:30:49.311  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/favicon.ico'], []
+2018-09-13 12:30:49.312  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/angular/**'], []
+2018-09-13 12:30:49.312  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/css/**'], []
+2018-09-13 12:30:49.312  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/fonts/**'], []
+2018-09-13 12:30:49.313  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/log.html'], []
+2018-09-13 12:30:49.313  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/decon'], []
+2018-09-13 12:30:49.313  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/inscription'], []
+2018-09-13 12:30:49.313  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/envoimail'], []
+2018-09-13 12:30:49.313  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/verifcode'], []
+2018-09-13 12:30:49.314  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/modifpass'], []
+2018-09-13 12:30:49.314  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/usermail/**'], []
+2018-09-13 12:30:49.314  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/newabonne.html'], []
+2018-09-13 12:30:49.314  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/resetpass.html'], []
+2018-09-13 12:30:49.314  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: Ant [pattern='/modifpassword.html'], []
+2018-09-13 12:30:49.394  INFO 2756 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a0247d4, org.springframework.security.web.context.SecurityContextPersistenceFilter@242039d5, org.springframework.security.web.header.HeaderWriterFilter@3a66ef6, org.springframework.web.filter.CorsFilter@17cb3b9e, org.springframework.security.web.authentication.logout.LogoutFilter@14ce335d, sn.camara.SecurityConfig.JWTLoginFilter@6198c49, sn.camara.SecurityConfig.JWTAuthenticationFilter@7e2243a8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f964aab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b2957c7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36d6975f, org.springframework.security.web.session.SessionManagementFilter@65b33318, org.springframework.security.web.access.ExceptionTranslationFilter@35ca1501, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49429f28]
+2018-09-13 12:30:49.455  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users]}" onto public java.lang.String sn.camara.UserController.getUsers()
+2018-09-13 12:30:49.459  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/abonne],methods=[GET]}" onto public java.util.List<sn.camara.User> sn.camara.UserService.getAbonnes()
+2018-09-13 12:30:49.459  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users],methods=[GET]}" onto public java.util.List<sn.camara.User> sn.camara.UserService.listeUsers() throws sn.camara.error.CustomException
+2018-09-13 12:30:49.461  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/authenticate],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> sn.camara.UserService.connexion(java.lang.String)
+2018-09-13 12:30:49.461  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/utilisateurs],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<sn.camara.User>> sn.camara.UserService.listAllProducts()
+2018-09-13 12:30:49.462  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/abonnemail],methods=[POST]}" onto public java.util.List<sn.camara.User> sn.camara.UserService.abonne(java.lang.String)
+2018-09-13 12:30:49.462  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/verifcode],methods=[POST]}" onto public sn.camara.User sn.camara.UserService.envoimail(sn.camara.User)
+2018-09-13 12:30:49.465  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-09-13 12:30:49.465  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-09-13 12:30:49.539  INFO 2756 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@30eca38c: startup date [Thu Sep 13 12:30:44 UTC 2018]; root of context hierarchy
+2018-09-13 12:30:49.587  INFO 2756 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalControllerExceptionHandler
+2018-09-13 12:30:50.036  INFO 2756 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-09-13 12:30:50.096  INFO 2756 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-09-13 12:30:50.164  INFO 2756 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 80 (http)
+2018-09-13 12:30:50.169  INFO 2756 --- [restartedMain] s.c.SpringBootJwtAngularjsApplication    : Started SpringBootJwtAngularjsApplication in 6.999 seconds (JVM running for 8.216)
+2018-09-13 12:30:50.448  INFO 2756 --- [restartedMain] s.c.SpringBootJwtAngularjsApplication    : RANDOM==========>

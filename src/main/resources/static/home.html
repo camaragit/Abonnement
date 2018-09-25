@@ -1,0 +1,87 @@
+ <div id="wrapper">
+      
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">GESTION ABONNEMENT</a>
+            </div>
+<!--             /.navbar-header
+ -->            <ul class="nav navbar-top-links navbar-right">
+<!--                 /.dropdown
+ -->                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-user fa-fw"></i> {{utilisateur}} <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                       <li><a ui-sref="login"><i class="fa fa-sign-out fa-fw"></i>Deconnexion</a></li>
+                    </ul>
+<!--                     /.dropdown-user
+ -->                </li>
+<!--                 /.dropdown
+ -->            </ul>
+<!--             /.navbar-top-links
+ -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                   
+                        <li>
+                            <a ui-sref="main"><i class="glyphicon glyphicon-home  "></i> Acceuil</a>
+                        </li>
+                              <li>
+                            <a ui-sref="main.inscription"><i class="glyphicon glyphicon-pencil"></i> Utilisateurs</a>                                </li>
+                                <li>
+                            		<a ui-sref="main.rubrique"><i class="glyphicon glyphicon-fullscreen"></i> Rubriques</a>
+                                </li>
+                                <li>
+                           			 <a ui-sref="main.service"><i class="fa fa-windows"></i> Services</a>
+                                </li>
+                                  <li>
+                            <a ui-sref="main.newabonnement"><i class="glyphicon glyphicon-calendar"></i>Abonnement</a>
+                                </li>
+                         <li>
+                                  <a ui-sref="main.affectatonabonnement"> <i class="glyphicon glyphicon-list-alt"></i> Affection Abonnement</a>
+                           </li>
+                            
+                                <li>
+                                    <a ui-sref="main.etatabonnement"><i class="glyphicon glyphicon-list-alt"></i> Etat Abonnement</a>
+                                </li>
+                     <!--        <li>
+                            <a href="#"><i class="fa fa-users  fa-fw"></i> Abonne<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a  href="panels-wells.html"><i class="glyphicon glyphicon-pencil"></i> Inscription</a>
+                                </li>
+                              
+                               
+                            </ul>
+                            /.nav-second-level
+                        </li> -->
+                       <!--            <li>
+                            <a href="#"><i class="fa fa-wrench  fa-fw"></i> Parametrage<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                          
+                               
+                            </ul>
+                            /.nav-second-level
+                        </li> -->
+                    </ul>
+                </div>
+<!--                 /.sidebar-collapse
+ -->            </div>
+<!--             /.navbar-static-side
+ -->        </nav>
+   
+      <div id="page-wrapper">
+      
+ <ui-view>  </ui-view>
+ 			
+		</div>
+          </div>
+            
+         

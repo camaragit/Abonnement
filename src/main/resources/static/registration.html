@@ -1,0 +1,148 @@
+<meta charset="UTF-8">
+<div class="row">
+
+	<div class="col-lg-12">
+		<h1 class="page-header">Inscription Utilisateur</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+ <connexionmodale visible="connexionModale">
+        <div class="modal-body">
+        <div class="panel panel-success" data-ng-show="!signIn">
+                <div class="panel-heading text-center">
+                    <h3 class="text-white">Suppréssion de l'utilisateur</h3>
+                </div>
+                <div class="panel-body">
+        
+                 
+                 <table>
+                 <tr><td>Prénom:</td><td>{{supabonne.prenom}}</td></tr>
+                 <tr><td>Nom:</td><td>{{supabonne.nom}}</td></tr>
+                 <tr><td>Téléphone:</td><td>{{supabonne.tel}}</td></tr>
+                 <tr><td>E-mail:</td><td>{{supabonne.username}}</td></tr>
+                  </table>
+                  <br/>
+                      <div class="col-xs-12 margin-top-20">                    
+                            <div class="col-xs-6">
+                                <button type="submit" data-dismiss="modal" class="btn btn-block btn-ed-model btn-success">Annuler</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-danger" ng-click="supprimer(supabonne.username)" > Confirmer </button>
+                            </div> 
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </connexionmodale>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading" align="center"> <h3>Fiche utilisateur</h3><div flash-message="5000"></div></div>
+			<div class="panel-body formcontainer">
+				<div class="row">
+					<div class="col-lg-4">
+						<h3 class="page-header">{{mode}}</h3>
+						<form role="form" name="formuser">
+						 <div class="form-group">
+                                            <label>ROLE *</label>
+                                            <select class="form-control" ng-model="data.role"  required nf-focus="resetrole()" ng-blur="existerole()">
+                                                <option value="ADMIN">ADMIN</option>
+                                                <option value="ABONNE">ABONNE</option>
+                                            </select>
+                                            <p class="has-error" ng-if="nonrole">{{message}}</p>
+                                        </div>
+						
+							<div class="form-group">
+								<label>Prénom *</label> <input ng-model="data.prenom"
+									class="form-control" required>
+								<!--<p class="help-block">Example block-level help text here.</p>-->
+							</div>
+							<div class="form-group">
+								<label>Nom *</label> <input ng-model="data.nom"
+									class="form-control" required>
+								<!--<p class="help-block">Example block-level help text here.</p>-->
+							</div>
+							<div class="form-group">
+								<label>Téléphone</label> <input ng-model="data.tel"
+									class="form-control">
+							</div>
+							<input ng-model="data.username" type="hidden">
+
+							<div ng-if="!editmod">
+								<div class="form-group">
+									<label>Adresse Mail *</label> <input ng-model="data.username" type="email"	ng-focus="resetmail()"	ng-blur="verifExistence()" required class="form-control">
+									
+									<p class="has-error" ng-if="existmail">{{message}}</p>
+								</div>
+								<div class="form-group">
+									<label>Mot de Passe</label> <input type="password"
+										ng-model="data.password" required class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Confirmation</label>
+									 <input type="password" required ng-blur="verifConf()" ng-focus="resetconf()" ng-model="data.conf"	class="form-control">
+									<p class="has-error" ng-if="pasconf">{{message}}.</p>
+								</div>
+
+							</div>
+						<div class="col-xs-6">
+                                <button  ng-click="inscrire()" ng-disabled="formuser.$invalid || pasconf || existmail" class="btn btn-block btn-ed-model btn-success">{{bouton}}</button>
+                            </div>
+							
+
+						</form>
+					</div>
+					<!-- /.col-lg-6 (nested) -->
+					<div class="col-lg-8">
+						<h3 class="page-header">Les utilisateurs</h3>
+						<div>
+							<div class="row"></div>
+							<div class="panel panel-default" style="margin: 20px;">
+
+								<div class="tablecontainer">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Prenom</th>
+												<th>Nom</th>
+												<th>Telephone</th>
+												<th>E-mail</th>
+												<th>Role</th>
+												<th></th>
+												<th ></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="a in abonne" >
+												<td><span ng-bind="a.prenom"></span></td>
+												<td><span ng-bind="a.nom"></span></td>
+												<td><span ng-bind="a.tel"></span></td>
+												<td><span ng-bind="a.username"></span></td>
+												<td><span ng-bind="a.roles[0].nomRole"></span></td>
+												<td><i ng-click="editer(a.username)"
+													class="glyphicon glyphicon-edit"></i></td>
+												<td><i ng-click="modalsupprimer(a.username)"
+													class="glyphicon glyphicon-trash"></i></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- /.col-lg-6 (nested) -->
+						</div>
+						<!-- /.row (nested) -->
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+			<div class="panel-footer">
+                            Powered by AJIT 
+                        </div>
+			<!-- /.col-lg-12 -->
+		</div>
+
+	</div>
+</div>
+

@@ -1,0 +1,85 @@
+<meta charset="UTF-8">
+<div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">GESTION ABONNEMENT</a>
+            </div>
+
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Nouveau Abonné</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><div flash-message="5000"></div></div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6" style="margin-left: 15%;margin-right: 15%">
+                                
+                                    <form role="form" name="formuser">
+                                        <div class="form-group" >
+                                            <label>Prénom</label>
+                                            <input ng-model="data.prenom" class="form-control" required>
+                                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                                        </div>
+     									<div class="form-group">
+                                            <label>Nom</label>
+                                            <input ng-model="data.nom" class="form-control" required>
+                                            <!--<p class="help-block">Example block-level help text here.</p>-->
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Téléphone</label>
+                                            <input ng-model="data.tel" class="form-control">
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Adresse Mail</label>
+                                            <input  ng-model="data.username" ng-focus="resetmail()" ng-blur="verifExistence()" required class="form-control">
+                                       		<p class="has-error" ng-if="existmail">Cette adresse mail est déjà attribuée</p>
+                                        </div>
+                                           <div class="form-group">
+                                            <label>Mot de Passe</label>
+                                            <input type="password" ng-model="data.password" required class="form-control">
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Confirmation</label>
+                                            <input type="password" required ng-blur="verifConf()" ng-focus="resetconf()" ng-model="data.conf" class="form-control">
+                                            <p class="has-error" ng-if="pasconf">Les mots de passe ne sont pas identiques.</p>
+                                        </div>
+
+              
+
+                                        <input type="submit"  ng-click="inscrire()" ng-disabled="formuser.$invalid || pasconf || existmail"  class="btn btn-primary btn-sm" value="Inscrire" >
+                                        
+                                    </form>
+                                    
+                                </div>
+                               
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+          </div>
+            </div>
+         
+        

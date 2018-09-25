@@ -1,0 +1,38 @@
+   <meta charset="UTF-8">
+    <div class="container" ng-controller="loginCrtl">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Connexion</h3>
+                    </div>
+                    <div class="panel-body">
+                    
+                        <form role="form">
+                        
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="login" ng-model="data.login" ng-change="resetErreur()" name="email" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="mot de passe" ng-model="data.motp"  ng-change="resetErreur()" name="password" type="password" value="">
+                                </div>
+                                <div class="col-xs-12 margin-top-20">
+                            <div class="col-xs-6">
+                                <button type="submit" ng-click="login()" class="btn btn-block btn-ed-model btn-success">Connexion</button>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="btn btn-block btn-ed-model btn-info" ui-sref="bess"> Inscription </button>
+                            </div>
+                        </div>
+                            </fieldset>
+                        </form>
+                        <br/>
+                        <div class="has-error" ng-if="erreurCon" >Login ou mot de passe incorrect</div>
+                        <br><br>
+                        <div align="center"><a ui-sref="resetpass">Mot de passe oublié ?</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
